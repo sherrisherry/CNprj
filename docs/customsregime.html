@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+
+<!--suppress ALL-->
+<html>
+<head>
+    <meta charset="utf-8" lang="zh-cn" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/static/lib/html5shiv.js"></script>
+    <script type="text/javascript" src="/static/lib/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="/static/lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" id="skin" href="/static/h-ui.admin/skin/default/skin.css" />
+    <link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/tab.css" />
+    <link rel="stylesheet" type="text/css" href="/css/elegant-icons-style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.css" />
+    <!--[if IE 6]>
+    <script type="text/javascript" src="static/lib/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>海关统计数据查询平台</title>
+</head>
+<body style="width: auto;height: auto;overflow: auto;">
+<div class="page-container">
+    <form method="post" style="" class="form-horizontal" id="Search_form" name="rule_form" action="/queryDataForEN/selectTradeMode">
+        <input type="hidden" id="tradeModeCodeList" name="tradeModeCodeList" value="" />
+        <table class="table " style="white-space: nowrap;">
+            <tr class="text-r">
+                <td style="width: 75%">
+                    <div style="float: right">
+                        <input type="text" class="input-text" id="searchKey" name="searchKey" style="width:260px; border-radius: 3px" value="" />
+                    </div>
+                </td>
+                <td style="width: 25%">
+                    <div style="float: left">
+                        <a class="btn btn-success" style="width: 80px;height: 30px;border-radius: 3px" type="button" onclick="doSearch(1);"><span>Query</span></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="height: 350px;overflow-x: auto">
+        <table id="table" class="table table-border  table-hover table-sort" style="margin-bottom: 0px">
+            <thead style="background-color:#f0edf1;">
+            <tr class="text-c" style="height: 40px;">
+                <th style="width: 5%;">
+                    <input type="checkbox" name="checkAll" value="" />
+                </th>
+                <th>
+                    <div class="tr-line">Customs Regime code</div>
+                </th>
+
+                <th>
+                    <div class="tr-line">Customs Regime</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="10" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">10</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Ordinary Trade">Ordinary Trade</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="11" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">11</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Aid or Donation Between Governments or by International Organizations">Aid or Donation ...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="12" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">12</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Other Donation">Other Donation</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="13" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">13</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Compensation Trade">Compensation Tra...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="14" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">14</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Processing and Assembling">Processing and A...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="15" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">15</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Processing with Imported Materials">Processing with ...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="16" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">16</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Goods on Consignment">Goods on Consign...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="19" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">19</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Border Trade">Border Trade</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="20" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">20</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Equipment for Processing Trade">Equipment for Pr...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="22" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">22</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Contracting Projects">Contracting Proj...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="23" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">23</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Goods on Lease">Goods on Lease</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="25" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">25</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Equipment or Materials Imported as Investment by Foreign-Invested Enterprises">Equipment or Mat...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="27" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">27</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Outward Processing">Outward Processi...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="30" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">30</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Barter Trade">Barter Trade</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="31" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">31</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Duty-free Commodities on Payment of Foreign Currency">Duty-free Commod...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="33" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">33</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Customs Warehousing Trade">Customs Warehous...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="34" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">34</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Entrepot Trade by Bonded Area">Entrepot Trade b...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="35" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">35</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Equipment Imported into Logistics Goods by Customs Special Control Area">Equipment Import...</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="39" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">39</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Other">Other</div>
+                </td>
+            </tr>
+            <tr class="text-c">
+                <td>
+                    <input type="checkbox" name="checkOne" value="41" />
+                    
+                </td>
+                <td>
+                    <div class="th-line">41</div>
+                </td>
+                <td>
+                    <div class="th-line" title="Duty-free goods">Duty-free goods</div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-c">
+        <input class="btn btn-success" style="background-color:#68aae4;width: 60px" type="button" onclick="commit()" value=" Confirm " />
+        <input class="btn btn-success" style="width: 60px" type="button" onclick="layer_close()" value=" Cancle " />
+    </div>
+</div>
+<div class="contextMenu">
+
+    <!--_footer 作为公共模版分离出去-->
+    <script type="text/javascript" src="/static/lib/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/lib/layer/2.4/layer.js"></script>
+    <script type="text/javascript" src="/static/h-ui/js/H-ui.min.js"></script>
+    <script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script>
+    <!--/_footer 作为公共模版分离出去-->
+</div>
+<script type="text/javascript" src="/static/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript">
+    function doSearch(pageNum) {
+        var tradeModeCodeList=[];
+        var preObj = $("#tradeModeCodeList").val();
+        if(preObj!=""){
+            tradeModeCodeList= preObj.split(",");
+        }
+        $("input[name='checkOne']:checked").each(function () {
+            if(tradeModeCodeList.indexOf($(this).val())==-1){
+                tradeModeCodeList.push($(this).val());
+            }
+        });
+        $("input[name='checkOne']:not(:checked)").each(function () {
+            if(tradeModeCodeList.indexOf($(this).val())!=-1){
+                tradeModeCodeList.splice($.inArray($(this).val(),tradeModeCodeList),1);
+            }
+        });
+        $("#tradeModeCodeList").val(tradeModeCodeList);
+
+        var re=/^[1-9]+[0-9]*]*$/;
+        if(!re.test(pageNum)){
+            layer.alert("The input page number must be a positive integer");
+            return false;
+        }
+        $("#hidPageNum").val(pageNum);
+        $("#Search_form").submit();
+    }
+
+    function commit() {
+        var tradeModeCodeList=[];
+        var preObj = $("#tradeModeCodeList").val();
+        if(preObj!=""){
+            tradeModeCodeList= preObj.split(",");
+        }
+        $("input[name='checkOne']:checked").each(function () {
+            if(tradeModeCodeList.indexOf($(this).val())==-1){
+                tradeModeCodeList.push($(this).val());
+            }
+        });
+        $("input[name='checkOne']:not(:checked)").each(function () {
+            if(tradeModeCodeList.indexOf($(this).val())!=-1){
+                tradeModeCodeList.splice($.inArray($(this).val(),tradeModeCodeList),1);
+            }
+        });
+        window.parent.$('#tradeMode').val(tradeModeCodeList);
+        layer_close();
+    }
+</script>
+
+</body>
+</html>

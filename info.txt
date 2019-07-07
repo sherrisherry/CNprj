@@ -1,0 +1,7 @@
+http://43.248.49.97/indexEn
+
+Togo, Ghana, Benin, Ethiopia, Burkina Faso, Uganda, Kenya, and Nigeria
+248,220,203,217,251,250,224,236
+
+csv download limit 10,000 records
+encode in UTF-8, no BOM, EOL LF for submission
