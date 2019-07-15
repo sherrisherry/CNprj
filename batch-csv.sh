@@ -1,6 +1,6 @@
 #!/bin/bash
 f=$(ls data | head -n1)
-head -n1 data/$f | iconv -f GB2312 -t utf8 -o outputs/export.csv
+head -n1 data/$f | iconv -f GB2312 -t utf8 -o outputs/export.csv # Use UTF-8 instead of utf8; > instead of -o in OS terminal
 cp outputs/export.csv outputs/import.csv
 for f in $(ls data | grep '^e'); do
 tail -n +2 data/$f | iconv -f GB2312 -t utf8 >> outputs/export.csv;
