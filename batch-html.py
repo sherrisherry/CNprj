@@ -1,11 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Sep 25 10:41:45 2019
-
-@author: NN
-"""
-
-#3 import package will be used
+# import package will be used
 from bs4 import BeautifulSoup
 import csv
 
