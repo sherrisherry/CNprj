@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 # import package will be used
 from bs4 import BeautifulSoup
 import csv
