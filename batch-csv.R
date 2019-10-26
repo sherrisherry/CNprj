@@ -1,10 +1,14 @@
 # number of records in each request < 10,000
+setwd('~/cn_prj')
 ie <- c(0,1); names(ie) <- c('e','i')
-yr <- 2018; mth <- 5:12
-cty <- c(101,102,103,104,105,106,107,108,109,111,112,113,114,115,116,117,118,119,120,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,141,144,145,146,147,148,149,201,202,204,205,206,207,208,210,211,212,213,214,215,216,218,219,221,222,223,225,226,227,228,229,230,231,232,233,234,235,237)
+yr <- 2019; mth <- 5:8
+current_cty <- c(248,220,203,217,251,250,224,236)
+delay_cty <- readLines('files/delay_cty.txt')
+cty <- delay_cty
 cookie <- 'exGF5PROFKORznN6exLaU4D2jGddQUneKouN8jK6BqG7o1EVdhqS!-1957586062'
 out_dir <- 'download'
 ref <- 'http://43.248.49.97/queryDataForEN/queryDataList'
+cat(NULL, file = 'batch.log')
 for(i in ie){
   for(j in cty){
     for(k in mth){
